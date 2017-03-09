@@ -8,7 +8,6 @@ from urllib2 import urlopen
 from flask import Flask
 from flask import request
 from flask import make_response
-from flask import jsonify
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -38,7 +37,7 @@ def makeWebhookResult(req):
 
     baseurl = "http://192.168.1.4:8080"
     url = "https://jsonplaceholder.typicode.com/posts"
-    response = urlopen(url,jsonify(parameters)).read()
+    response = urlopen(url,json.dumps(parameters)).read()
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     speech = "The cost of shipping to  is " + str(date) + " euros."
