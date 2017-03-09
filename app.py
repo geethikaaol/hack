@@ -34,7 +34,8 @@ def makeWebhookResult(req):
     result = req.get("result")
     
     data = json.dumps(result.get("parameters"))
-    baseurl = "http://ec2-204-236-199-93.compute-1.amazonaws.com:8080"
+    #baseurl = "http://ec2-204-236-199-93.compute-1.amazonaws.com:8080"
+    baseurl = "192.168.1.4:8080/"
     headers = {'Content-Type': 'application/json'}
     
     r = requests.post(url=baseurl, data=data, headers=headers).content
