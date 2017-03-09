@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import urllib
-import requests
 import json
 import os
 
@@ -32,15 +31,12 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "runreport":
         return {}
     result = req.get("result")
-    
-    data = json.dumps(result.get("parameters"))
-    #baseurl = "http://ec2-204-236-199-93.compute-1.amazonaws.com:8080"
-    baseurl = "192.168.1.4:8080/"
-    headers = {'Content-Type': 'application/json'}
-    
-    #r = requests.post(url=baseurl, data=data, headers=headers).content
-    r = "abc"
-    speech = "The result is" + r + "."
+    parameters = result.get("parameters")
+    date = parameters.get("date")
+
+    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+
+    speech = "The cost of shipping to " + zone + " is " + str(date) + " euros."
 
     print("Response:")
     print(speech)
