@@ -4,6 +4,7 @@ import urllib
 import json
 import os
 
+from urllib.request import urlopen
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -35,10 +36,10 @@ def makeWebhookResult(req):
     date = parameters.get("date")
 
     baseurl = "http://192.168.1.4:8080"
-    #result = urlopen(yql_url).read()
+    #result = urlopen(baseurl,parameters).read()
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-    speech = "The cost of shipping to  is " + str(json.loads(result)) + " euros."
+    speech = "The cost of shipping to  is " + str(date) + " euros."
 
     print("Response:")
     print(speech)
