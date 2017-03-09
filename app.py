@@ -3,6 +3,7 @@
 import urllib
 import json
 import os
+import requests
 
 from flask import Flask
 from flask import request
@@ -34,6 +35,8 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     date = parameters.get("date")
 
+    baseurl = "http://192.168.1.4:8080"
+    
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     speech = "The cost of shipping to  is " + str(date) + " euros."
