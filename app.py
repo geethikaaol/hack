@@ -37,7 +37,7 @@ def makeWebhookResult(req):
 
     baseurl = "http://192.168.1.4:8080"
     url = "https://jsonplaceholder.typicode.com/posts"
-    response = urlopen(url,json.dumps(parameters)).read()
+    response = urlopen(baseurl,json.dumps(parameters)).read()
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     speech = "The cost of shipping to  is " + str(response) + " euros."
