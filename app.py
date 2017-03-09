@@ -36,10 +36,11 @@ def makeWebhookResult(req):
     date = parameters.get("date")
 
     baseurl = "http://192.168.1.4:8080"
-    result = urlopen(baseurl,parameters).read()
+    request = urllib2.Request(baseurl, urllib.urlencode(parameters))
+    response = urllib2.urlopen(request).read()
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-    speech = "The cost of shipping to  is " + str(result) + " euros."
+    speech = "The cost of shipping to  is " + str(date) + " euros."
 
     print("Response:")
     print(speech)
