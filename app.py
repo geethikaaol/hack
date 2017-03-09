@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import urllib
-import urllib2
 import json
 import os
 
@@ -37,8 +36,8 @@ def makeWebhookResult(req):
     date = parameters.get("date")
 
     baseurl = "http://192.168.1.4:8080"
-    request = urllib2.Request(baseurl, urllib.urlencode(parameters))
-    response = urllib2.urlopen(request).read()
+    url = "https://google.co.in"
+    response = urlopen(url).read()
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     speech = "The cost of shipping to  is " + str(date) + " euros."
