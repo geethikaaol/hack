@@ -38,8 +38,8 @@ def makeWebhookResult(req):
     baseurl = "192.168.1.4:8080/"
     headers = {'Content-Type': 'application/json'}
     
-    r = requests.post(url=baseurl, data=data, headers=headers).content
-    
+    #r = requests.post(url=baseurl, data=data, headers=headers).content
+    r = "abc"
     speech = "The result is" + r + "."
 
     print("Response:")
