@@ -4,7 +4,7 @@ import urllib
 import json
 import os
 
-from urllib.request import urlopen
+from urllib2 import urlopen
 from flask import Flask
 from flask import request
 from flask import make_response
